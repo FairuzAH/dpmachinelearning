@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+from sklearn.ensemble import RandomForestClassifier
 
 st.title('Machine Learning App')
 
@@ -61,11 +62,23 @@ def target_encode(val):
   return target_mapper[val]
 
 y = y_raw.apply(target_encode)
-y
-y_raw
 
 with st.expander('Data preparation'):
-  st.write('**EEncoded x**')
+  st.write('**Encoded x**')
   input_row
   st.write('**Encoded y**')
+  y
+
+#model training
+## train ml model
+clf = RandomForestClassifier()
+clf.fit(df_penguins, y) 
+
+## apply model to make prediction
+prediction = clf.predict(input_row)
+prediction_prob = clf.predict_proba(input_row)
+
+prediction_prob
+with st.expander
+
 
