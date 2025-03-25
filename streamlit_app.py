@@ -53,7 +53,7 @@ with st.expander('Input features'):
 encode = ['island', ' gender']
 df_penguins = pd.get_dummies(input_penguins, prefix=encode)
 
-X = df_penguins[:1]
+X = df_penguins[1:]
 input_row= df_penguins[:1]
 
 # encode y
@@ -81,6 +81,9 @@ prediction = clf.predict(input_row)
 prediction_prob = clf.predict_proba(input_row)
 
 df_prediciton_proba = pd.DataFrame(predicition_proba)
-prediction_prob.columns = ('Adelie', 'Chistrap', 'Gentoo')
-prediction_prob
+df_prediction_prob.columns = ('Adelie', 'Chinstrap', 'Gentoo')
+df_prediction_prob.raname(column= {0: 'Adelie', 
+                                1: 'Chinstrap', 
+                                2: 'Gentoo'})
+df_prediciton_proba
 
