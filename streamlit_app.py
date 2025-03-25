@@ -80,7 +80,8 @@ clf.fit(X, y)
 prediction = clf.predict(input_row)
 prediction_prob = clf.predict_proba(input_row)
 
+prediction_prob.raname(columns= {0: 'Adelie',
+                                 1: 'Chistrap',
+                                 2: 'Gentoo'})
 prediction_prob
-with st.expander
-
 
